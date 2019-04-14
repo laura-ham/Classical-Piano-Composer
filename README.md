@@ -1,6 +1,5 @@
-# Classical Piano Composer
-
-This project allows you to train a neural network to generate midi music files that make use of a single instrument
+# Classical Piano Composer for emotions
+This is a forked project to train a neural network to generate midi music files that make use of a single instrument. This projects is adapted so that music is generated with an emotional label 'happy', 'sad', 'anger', or 'surprise'.
 
 ## Requirements
 
@@ -13,12 +12,15 @@ This project allows you to train a neural network to generate midi music files t
 
 ## Training
 
-To train the network you run **lstm.py**.
+To train the network you run **lstm.py emotion number_of_songs**.
+
+emotion only contains: 'happy','sad','anger' and 'surprise'
+number_of_songs: how many songs based to generate the music 
 
 E.g.
 
 ```
-python lstm.py
+python lstm.py 'happy' 15
 ```
 
 The network will use every midi file in ./midi_songs to train the network. The midi files should only contain a single instrument to get the most out of the training.
@@ -27,12 +29,12 @@ The network will use every midi file in ./midi_songs to train the network. The m
 
 ## Generating music
 
-Once you have trained the network you can generate text using **predict.py**
+Once you have trained the network you can generate text using **predict.py emotion**
 
 E.g.
 
 ```
-python predict.py
+python predict.py 'happy'
 ```
 
 You can run the prediction file right away using the **weights.hdf5** file
